@@ -10,8 +10,8 @@ void Set_CLK(void)
   CLKCONCMD &= ~0x40;
   while (CLKCONSTA & 0x40);
   //0000 1111
-  CLKCONCMD &= ~0x0F;
-  //CLKCONCMD &= 0x80;
+  //CLKCONCMD &= ~0x0F;
+  CLKCONCMD &= ~0x07;
 }
 
 void Init_Timer1(void)
@@ -74,18 +74,18 @@ void UART0SendString(char* str)
 void main(void)
 {
   Set_CLK();
-  init_LED1();
-  Init_Timer1();
+  //init_LED1();
+  //Init_Timer1();
   Init_Urat0();
   while (1)
   {
-    if (counter >= 15)
-    {
+    //if (counter >= 15)
+    //{
       //LED1 = ~LED1;
-      counter = 0;
-      LED1 = 1;
-      UART0SendString("Hello ! I am CC2530 .\n");
-      LED1 = 0;
-    }
+      //counter = 0;
+      //LED1 = 1;
+      UART0SendString("Hello ! I am CC2530 .");
+      //LED1 = 0;
+    //}
   }
 }
