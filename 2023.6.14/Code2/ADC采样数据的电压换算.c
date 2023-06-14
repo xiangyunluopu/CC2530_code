@@ -19,7 +19,7 @@ void Uart0_Send_Str(char* str)
 void Send(unsigned int adc_value, float adc_volta)
 {
   unsigned int a = 100 * adc_volta;
-  sprintf((char*)buff_str1, "AIN0获取的值为：%d, 转换成电压值为：%d.%d%d\r\n", adc_value, a / 100, (a / 10) % 10, a % 10);
+  sprintf((char*)buff_str1, "AIN0获取的值为：%d, 转换成电压值为：%d.%d%dV\r\n", adc_value, a / 100, (a / 10) % 10, a % 10);
   Uart0_Send_Str((char*)buff_str1);
 }
 
